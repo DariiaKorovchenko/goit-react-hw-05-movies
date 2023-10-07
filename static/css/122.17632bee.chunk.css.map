@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/122.17632bee.chunk.css","mappings":"AAIA,qCACE,aACF,CAEA,EACE,QACF","sources":["components/Cast.module.css"],"sourcesContent":[".Cast {\n  margin: 10px 0;\n}\n\n.actor {\n  margin: 10px 0;\n}\n\np {\n  margin: 0;\n}\n"],"names":[],"sourceRoot":""}
