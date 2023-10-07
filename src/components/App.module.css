@@ -1,0 +1,95 @@
+.navLink {
+  font-size: 20px;
+  margin: 20px;
+  color: black;
+  text-decoration: none;
+}
+
+.navLink:hover {
+  color: red;
+}
+
+.navigation {
+  display: flex;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2), 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  margin: 10px 20px;
+}
+
+.Form {
+  margin: 15px 0;
+}
+
+input {
+  width: 200px;
+  height: 20px;
+}
+
+button {
+  height: 27px;
+  width: 60px;
+  margin-left: 10px;
+  border: 1px solid gray;
+  border-radius: 3px;
+  background-color: lightgray;
+}
+
+button:hover {
+  border: 1px solid darkgrey;
+  background-color: darkgray;
+}
+
+.movieLink {
+  color: black;
+}
+
+.movieLink:visited {
+  color: black;
+}
+
+.movieLink:hover {
+  color: #737373;
+}
+
+.goback_link {
+  display: inline-block;
+  margin: 10px 0;
+  text-decoration: none;
+}
+
+.goback_link:visited {
+  color: black;
+}
+
+.goback_link:hover {
+  color: #737373;
+}
+
+.movie_container {
+  display: flex;
+}
+
+.movie_description {
+  margin: 0 20px;
+}
+
+.movie_title {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.movie_information {
+  display: flex;
+  flex-direction: column;
+}
+
+.information_link {
+  margin: 7px 0;
+  font-size: 16px;
+}
+
+.reviews_list {
+  list-style: none;
+}
