@@ -19,16 +19,14 @@ const Movies = () => {
       },
     };
 
-    async function fetchFilms() {
-      const films = await fetch(
-        `https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1&query=${searchQuery}`,
-        options
-      )
-        .then(response => response.json())
-        .then(data => setFoundFilms([...data.results]));
-    }
-
-    fetchFilms();
+    fetch(
+      `https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1&query=${searchQuery}`,
+      options
+    )
+      .then(response => response.json())
+      .then(data =>
+        setFoundFilms([...data.results]).catch(err => <div>{err}</div>)
+      );
   }, [searchQuery]);
 
   const updateQueryString = event => {

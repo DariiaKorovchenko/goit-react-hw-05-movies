@@ -21,7 +21,7 @@ const Home = () => {
     )
       .then(response => response.json())
       .then(response => setFilms([...response.results]))
-      .catch(error => console.log(error));
+      .catch(error => <div>{error}</div>);
   }, []);
 
   return (

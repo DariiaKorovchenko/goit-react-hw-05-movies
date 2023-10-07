@@ -1,10 +1,9 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { Outlet, Link, useLocation, useParams } from 'react-router-dom';
 import css from '../components/App.module.css';
 
 const MovieDetails = () => {
   const location = useLocation();
-  const backLinkLocationRef = useRef(location.state?.from ?? '/movies');
   const [film, setFilm] = useState({});
   const [filmDate, setFilmDate] = useState('');
   const { movieId } = useParams();

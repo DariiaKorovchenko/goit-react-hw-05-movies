@@ -25,7 +25,7 @@ const Cast = () => {
       .then(data => {
         setMovieCast(data);
       })
-      .catch(err => console.error(err));
+      .catch(err => <div>{err}</div>);
   }, [movieId]);
 
   return (
