@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Outlet, Link, useLocation, useParams } from 'react-router-dom';
 import css from '../components/App.module.css';
 
 const MovieDetails = () => {
   const location = useLocation();
+  const backLinkLocationRef = useRef(location.state?.from ?? '/movies');
   const [film, setFilm] = useState({});
   const [filmDate, setFilmDate] = useState('');
   const { movieId } = useParams();
@@ -32,7 +33,7 @@ const MovieDetails = () => {
 
   return (
     <div className={css.container}>
-      <Link to={location.state?.from ?? '/movies'} className={css.goback_link}>
+      <Link to={backLinkLocationRef.current} className={css.goback_link}>
         Go back
       </Link>
       <div className={css.movie_container}>
@@ -51,13 +52,27 @@ const MovieDetails = () => {
             {film.original_title} ({filmDate})
           </h1>
           <p>User score: {Math.round((film.vote_average / 10) * 100)}%</p>
-          <h2>Overview</h2>
-          <p>{film.overview}</p>
-          <h2>Genres</h2>
-          {film.genres !== undefined &&
-            film.genres.map(genre => {
-              return <li key={genre.id}>{genre.name}</li>;
-            })}
+
+          {film.overview !== '' && (
+            <div>
+              <h2>Overview</h2>
+              <p>{film.overview}</p>
+            </div>
+          )}
+
+          {film.genres !== undefined && (
+            <div>
+              {film.genres.length !== 0 && (
+                <div>
+                  {' '}
+                  <h2>Genres</h2>
+                  {film.genres.map(genre => {
+                    return <li key={genre.id}>{genre.name}</li>;
+                  })}
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
 

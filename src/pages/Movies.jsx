@@ -24,9 +24,7 @@ const Movies = () => {
       options
     )
       .then(response => response.json())
-      .then(data =>
-        setFoundFilms([...data.results]).catch(err => <div>{err}</div>)
-      );
+      .then(data => setFoundFilms([...data.results]));
   }, [searchQuery]);
 
   const updateQueryString = event => {

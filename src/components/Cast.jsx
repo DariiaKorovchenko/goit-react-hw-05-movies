@@ -30,26 +30,33 @@ const Cast = () => {
 
   return (
     <div className={css.Cast}>
-      {movieCast.cast !== undefined &&
-        movieCast.cast.map(actor => {
-          return (
-            <li key={actor.id} className={css.actor}>
-              {actor.profile_path !== null ? (
-                <img
-                  src={`https://image.tmdb.org/t/p/original${actor.profile_path}`}
-                  width="100"
-                  alt={actor.name}
-                ></img>
-              ) : (
-                <img src={profile} width="100" alt={actor.name} />
-              )}
+      {movieCast.cast !== undefined && (
+        <div>
+          {movieCast.cast.length === 0 && (
+            <p>We don't have any actors for this movie</p>
+          )}
+          {movieCast.cast.length !== 0 &&
+            movieCast.cast.map(actor => {
+              return (
+                <li key={actor.id} className={css.actor}>
+                  {actor.profile_path !== null ? (
+                    <img
+                      src={`https://image.tmdb.org/t/p/original${actor.profile_path}`}
+                      width="100"
+                      alt={actor.name}
+                    ></img>
+                  ) : (
+                    <img src={profile} width="100" alt={actor.name} />
+                  )}
 
-              <p>{actor.name}</p>
+                  <p>{actor.name}</p>
 
-              <p>Character: {actor.character}</p>
-            </li>
-          );
-        })}
+                  <p>Character: {actor.character}</p>
+                </li>
+              );
+            })}
+        </div>
+      )}
     </div>
   );
 };
